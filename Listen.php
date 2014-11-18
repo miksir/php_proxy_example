@@ -37,9 +37,9 @@ class Listen extends Connection {
             throw new Exception($error);
         }
 
-        $this->collection->add($this);
-
         $this->logger->log(LoggerAbstract::INFO, "Listen socket created {$this->address}:{$this->port}", ['caller' => __CLASS__.":".__LINE__]);
+
+        parent::create();
     }
 
     /**
