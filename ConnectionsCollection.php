@@ -25,6 +25,7 @@ class ConnectionsCollection {
     {
         unset($this->sockets[$connection->id]);
         unset($this->connections[$connection->id]);
+        //gc_collect_cycles();
     }
 
     public function loop()
