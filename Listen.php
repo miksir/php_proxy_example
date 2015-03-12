@@ -50,6 +50,7 @@ class Listen extends Connection {
         $this->logger->log(LoggerAbstract::DEBUG, __CLASS__."::readSocket", ['caller' => __CLASS__.":".__LINE__]);
 
         $new_socket = socket_accept($this->socket);
+        socket_set_nonblock($new_socket);
         if ($new_socket !== false) {
             $client = new Client($this->collection, $this->logger);
             $client->setSocket($new_socket);
